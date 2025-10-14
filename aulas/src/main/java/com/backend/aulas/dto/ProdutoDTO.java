@@ -7,15 +7,15 @@ public class ProdutoDTO {
     private UUID id;
     private String nome;
     private float preco;
-    private List<UUID> clientesIds;
+    private List<ClienteResumoDTO> clientes;
 
     public ProdutoDTO() {}
 
-    public ProdutoDTO(UUID id, String nome, float preco, List<UUID> clientesIds) {
+    public ProdutoDTO(UUID id, String nome, float preco, List<ClienteResumoDTO> clientes) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
-        this.clientesIds = clientesIds;
+        this.clientes = clientes;
     }
 
     public UUID getId() { return id; }
@@ -27,6 +27,6 @@ public class ProdutoDTO {
     public float getPreco() { return preco; }
     public void setPreco(float preco) { this.preco = preco; }
 
-    public List<UUID> getClientesIds() { return clientesIds; }
-    public void setClientesIds(List<UUID> clientesIds) { this.clientesIds = clientesIds; }
+    public List<ClienteResumoDTO> getClientes() { return clientes; }
+    public void setClientes(List<ClienteResumoDTO> clientes) { this.clientes = clientes; }
 }

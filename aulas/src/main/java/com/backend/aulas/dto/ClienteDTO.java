@@ -7,15 +7,15 @@ public class ClienteDTO {
     private UUID id;
     private String nome;
     private String email;
-    private List<UUID> produtosIds;
+    private List<ProdutoDTO> produtos;
 
     public ClienteDTO() {}
 
-    public ClienteDTO(UUID id, String nome, String email, List<UUID> produtosIds) {
+    public ClienteDTO(UUID id, String nome, String email, List<ProdutoDTO> produtos) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.produtosIds = produtosIds;
+        this.produtos = produtos;
     }
 
     public UUID getId() { return id; }
@@ -27,6 +27,6 @@ public class ClienteDTO {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public List<UUID> getProdutosIds() { return produtosIds; }
-    public void setProdutosIds(List<UUID> produtosIds) { this.produtosIds = produtosIds; }
+    public List<ProdutoDTO> getProdutos() { return produtos; }
+    public void setProdutos(List<ProdutoDTO> produtos) { this.produtos = produtos; }
 }
