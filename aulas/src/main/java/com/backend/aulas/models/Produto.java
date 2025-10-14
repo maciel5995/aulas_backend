@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,14 +17,11 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank(message = "O nome é obrigatório")
     private String nome;
-
-    @Positive(message = "O valor deve ser maior que zero")
     private float preco;
-//    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @ManyToMany(mappedBy = "produtos")
-//    private List<Cliente> clientes;
+
+    @ManyToMany(mappedBy = "produtos")
+    private List<Cliente> clientes = new ArrayList<>();
 
     public Produto(){}
 
@@ -50,7 +48,7 @@ public class Produto {
         this.preco = preco;
     }
 
-//    public List<Cliente> getClientes() { return clientes; }
-//
-//    public void setClientes(List<Cliente> clientes) { this.clientes = clientes; }
+    public List<Cliente> getClientes() { return clientes; }
+
+    public void setClientes(List<Cliente> clientes) { this.clientes = clientes; }
 }
