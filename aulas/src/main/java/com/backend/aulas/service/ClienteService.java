@@ -8,7 +8,10 @@ import com.backend.aulas.models.Produto;
 import com.backend.aulas.repository.ClienteRepository;
 import com.backend.aulas.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -71,6 +74,13 @@ public class ClienteService {
                 .stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public Page<Cliente> listarPaginado(String nomeFiltro, Pageable pageable) {
+        if (nomeFiltro == null || nomeFiltro.isBlank()) {
+            return clienteRepository.findAll(pageable);
+        }
+        return clienteRepository.findByNomeContainingIgnoreCase(nomeFiltro, pageable);
     }
 
     public ClienteDTO buscarPorId(UUID id) {

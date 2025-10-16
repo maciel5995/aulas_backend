@@ -27,6 +27,7 @@ public class Cliente {
             inverseJoinColumns = @JoinColumn(name = "produto_id")
     )
     private List<Produto> produtos = new ArrayList<>();
+    // Construtores e métodos get e set
 
     public Cliente() {}
 

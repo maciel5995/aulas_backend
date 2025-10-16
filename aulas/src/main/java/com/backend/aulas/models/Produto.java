@@ -1,6 +1,7 @@
 package com.backend.aulas.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -21,7 +22,9 @@ public class Produto {
     private float preco;
 
     @ManyToMany(mappedBy = "produtos")
+    @JsonIgnoreProperties("produtos")
     private List<Cliente> clientes = new ArrayList<>();
+    // Construtores e métodos get e set
 
     public Produto(){}
 
